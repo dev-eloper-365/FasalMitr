@@ -1,3 +1,5 @@
+// AUTHENTICATION COMMENTED OUT - Signup component disabled
+/*
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -99,6 +101,21 @@ const Signup = () => {
       <p>
         Already have an account? <Link to="/auth">Login</Link>
       </p>
+    </div>
+  );
+};
+
+export default Signup;
+*/
+
+// Placeholder component since auth is disabled
+import React from "react";
+
+const Signup = () => {
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>
+      <h2>Registration Disabled</h2>
+      <p>This feature has been temporarily disabled.</p>
     </div>
   );
 };

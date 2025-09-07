@@ -1,3 +1,5 @@
+# AUTHENTICATION COMMENTED OUT - Custom user model disabled
+"""
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -22,4 +24,5 @@ class CustomUser(AbstractUser):
         related_name='customuser_set',
         related_query_name='customuser',
     )
+"""
 

@@ -4,5 +4,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('authentication.urls')),
+    # AUTHENTICATION COMMENTED OUT - Auth URLs disabled
+    # path('api/', include('authentication.urls')),
 ]

@@ -1,4 +1,6 @@
 # filepath: /C:/Users/black/Desktop/Agriculture/backend/auth_project/authentication/views.py
+# AUTHENTICATION COMMENTED OUT - All auth functionality disabled
+"""
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -41,3 +43,4 @@ class UserView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+"""

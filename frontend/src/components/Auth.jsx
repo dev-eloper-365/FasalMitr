@@ -1,3 +1,5 @@
+// AUTHENTICATION COMMENTED OUT - Auth component disabled
+/*
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -41,6 +43,21 @@ const Auth = ({ onLogin }) => {
         <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+    </div>
+  );
+};
+
+export default Auth;
+*/
+
+// Placeholder component since auth is disabled
+import React from "react";
+
+const Auth = () => {
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>
+      <h2>Authentication Disabled</h2>
+      <p>This feature has been temporarily disabled.</p>
     </div>
   );
 };

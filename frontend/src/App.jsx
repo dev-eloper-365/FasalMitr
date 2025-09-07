@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./components/Home";
-import Auth from "./components/Auth";
-import Signup from "./components/Signup";
+// AUTHENTICATION COMMENTED OUT - Auth components disabled
+// import Auth from "./components/Auth";
+// import Signup from "./components/Signup";
 import ChatBot from "./components/ChatBot";
 import SmartIrrigation from "./components/SmartIrrigation";
 import WaterLevelAndWasteManagementPlanner from "./components/WaterLevelAndWasteManagementPlanner";
@@ -43,10 +44,13 @@ const ThemeToggle = () => {
 };
 
 const AppContent = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // AUTHENTICATION COMMENTED OUT - Auth state and logic disabled
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [loading, setLoading] = useState(true);
   const { isDark } = useTheme();
 
+  // AUTHENTICATION COMMENTED OUT - Auth effects disabled
+  /*
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
@@ -63,42 +67,48 @@ const AppContent = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("authToken");
   };
+  */
 
   const ShowHeader = () => {
     const location = useLocation();
-    return !["/auth", "/signup"].includes(location.pathname) ? (
-      <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-    ) : null;
+    // AUTHENTICATION COMMENTED OUT - Always show header, no auth checks
+    // return !["/auth", "/signup"].includes(location.pathname) ? (
+    //   <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+    // ) : null;
+    return <Header />;
   };
 
-  if (loading) {
-    return <div className="flex items-center justify-center min-h-screen bg-background-light dark:bg-background-dark">Loading...</div>;
-  }
+  // AUTHENTICATION COMMENTED OUT - No loading state needed
+  // if (loading) {
+  //   return <div className="flex items-center justify-center min-h-screen bg-background-light dark:bg-background-dark">Loading...</div>;
+  // }
 
   return (
     <div className={`min-h-screen bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300`}>
       <Router>
         <ShowHeader />
         <Routes>
-          <Route path="/auth" element={<Auth onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/machine-rental/lender" element={isAuthenticated ? <Lender /> : <Navigate to="/auth" />} />
-          <Route path="/machine-rental/receiver" element={isAuthenticated ? <Receiver /> : <Navigate to="/auth" />} />
-          <Route path="/machine-rental" element={isAuthenticated ? <MachineRental /> : <Navigate to="/auth" />} />
-          <Route path="/chatbot" element={isAuthenticated ? <ChatBot /> : <Navigate to="/auth" />} />
-          <Route path="/smart-irrigation" element={isAuthenticated ? <SmartIrrigation /> : <Navigate to="/auth" />} />
-          <Route path="/smart-irrigation/water-level-and-waste-management-planner" element={isAuthenticated ? <WaterLevelAndWasteManagementPlanner /> : <Navigate to="/auth" />} />
-          <Route path="/smart-irrigation/pest-attack-prediction" element={isAuthenticated ? <PestAttackPrediction /> : <Navigate to="/auth" />} />
-          <Route path="/smart-irrigation/farm-profit" element={isAuthenticated ? <FarmProfitability /> : <Navigate to="/auth" />} />
-          {/* <Route path="/smart-irrigation/plant-disease-heat-map" element={isAuthenticated ? <PlantDiseaseHeatMap /> : <Navigate to="/auth" />} /> */}
-          <Route path="/ai-pest-detection" element={isAuthenticated ? <AIPestDetection /> : <Navigate to="/auth" />} />
-          <Route path="/climate-prediction" element={isAuthenticated ? <ClimatePrediction /> : <Navigate to="/auth" />} />
-          <Route path="/plant-disease-detection" element={isAuthenticated ? <PlantDiseaseDetection /> : <Navigate to="/auth" />} />
-          <Route path="/plant-disease-detection/potato" element={isAuthenticated ? <Potato /> : <Navigate to="/auth" />} />
-          <Route path="/plant-disease-detection/bellpepper" element={isAuthenticated ? <BellPepper /> : <Navigate to="/auth" />} />
-          <Route path="/plant-disease-detection/tomato" element={isAuthenticated ? <Tomato /> : <Navigate to="/auth" />} />
-          <Route path="/policy" element={isAuthenticated ? <Policies /> : <Navigate to="/auth" />} />
-          <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/auth" />} />
+          {/* AUTHENTICATION COMMENTED OUT - Auth routes disabled */}
+          {/* <Route path="/auth" element={<Auth onLogin={handleLogin} />} />
+          <Route path="/signup" element={<Signup />} /> */}
+          {/* AUTHENTICATION COMMENTED OUT - All routes now accessible without auth */}
+          <Route path="/machine-rental/lender" element={<Lender />} />
+          <Route path="/machine-rental/receiver" element={<Receiver />} />
+          <Route path="/machine-rental" element={<MachineRental />} />
+          <Route path="/chatbot" element={<ChatBot />} />
+          <Route path="/smart-irrigation" element={<SmartIrrigation />} />
+          <Route path="/smart-irrigation/water-level-and-waste-management-planner" element={<WaterLevelAndWasteManagementPlanner />} />
+          <Route path="/smart-irrigation/pest-attack-prediction" element={<PestAttackPrediction />} />
+          <Route path="/smart-irrigation/farm-profit" element={<FarmProfitability />} />
+          {/* <Route path="/smart-irrigation/plant-disease-heat-map" element={<PlantDiseaseHeatMap />} /> */}
+          <Route path="/ai-pest-detection" element={<AIPestDetection />} />
+          <Route path="/climate-prediction" element={<ClimatePrediction />} />
+          <Route path="/plant-disease-detection" element={<PlantDiseaseDetection />} />
+          <Route path="/plant-disease-detection/potato" element={<Potato />} />
+          <Route path="/plant-disease-detection/bellpepper" element={<BellPepper />} />
+          <Route path="/plant-disease-detection/tomato" element={<Tomato />} />
+          <Route path="/policy" element={<Policies />} />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <ThemeToggle />

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 import logo from "../assets/logo.png"; // Make sure to replace this with the correct path to your logo file
 
-function Header({ isAuthenticated, onLogout }) {
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -11,10 +11,13 @@ function Header({ isAuthenticated, onLogout }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // AUTHENTICATION COMMENTED OUT - Logout functionality disabled
+  /*
   const handleLogout = () => {
     onLogout();  // Call the logout function passed as a prop
     navigate("/auth");  // Redirect to the login page
   };
+  */
 
   return (
     <header className="header">
@@ -30,11 +33,12 @@ function Header({ isAuthenticated, onLogout }) {
         <Link to="/machine-rental" onClick={() => setIsMenuOpen(false)}>Machine Rental</Link>
         <Link to="/plant-disease-detection" onClick={() => setIsMenuOpen(false)}>Plant Disease</Link>
         <Link to="/policy" onClick={() => setIsMenuOpen(false)}>Policies</Link>
-        {isAuthenticated ? (
+        {/* AUTHENTICATION COMMENTED OUT - Login/logout buttons removed */}
+        {/* {isAuthenticated ? (
           <button className="logout-button" onClick={handleLogout}>Logout</button>
         ) : (
           <Link to="/auth" onClick={() => setIsMenuOpen(false)}>Login</Link>
-        )}
+        )} */}
       </nav>
     </header>
   );

@@ -1,3 +1,5 @@
+# AUTHENTICATION COMMENTED OUT - All auth URLs disabled
+"""
 from django.urls import path
 from .views import RegisterView, LoginView, LogoutView, UserView
 
@@ -7,4 +9,8 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('user/', UserView.as_view(), name='user'),
 ]
+"""
+
+# Empty URL patterns since auth is disabled
+urlpatterns = []
 
