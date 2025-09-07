@@ -1,0 +1,99 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+  margin: 0;
+  padding: 0;
+}
+
+.policy {
+  max-width: 1200px; /* Wider for modern feel */
+  height: 700px; /* Fixed height for scrollable content */
+  margin: 60px auto;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(255, 255, 255, 0.7); /* Glass effect */
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.425);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #007bff #e0e0e0;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.policy::-webkit-scrollbar {
+  width: 8px;
+}
+
+.policy::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.policy::-webkit-scrollbar-thumb {
+  background: rgba(0, 123, 255, 0.7);
+  border-radius: 10px;
+}
+
+.policy h1 {
+  padding-top: 0px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, #007bff, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.policy div {
+  line-height: 1.7;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.policy div p {
+  margin: 15px 0;
+  padding: 12px;
+  
+  
+  border-radius: 8px;
+}
+
+.policy div a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.policy div a:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .policy {
+    height: 500px;
+    padding: 20px;
+  }
+
+  .policy h1 {
+    font-size: 2rem;
+  }
+
+  .policy div {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

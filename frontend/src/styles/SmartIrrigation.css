@@ -1,0 +1,56 @@
+.smart-irrigation-container {
+  padding-top: 80px;
+}
+
+.smart-irrigation-container .sections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.smart-irrigation-container .section-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.smart-irrigation-container .section-item:hover {
+  transform: scale(1.01);
+}
+
+.smart-irrigation-container .section-item img {
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.smart-irrigation-container .section-item.left {
+  flex-direction: row;
+}
+
+.smart-irrigation-container .section-item.right {
+  flex-direction: row-reverse;
+}
+
+.smart-irrigation-container .section-content {
+  padding: 20px;
+}
+
+.smart-irrigation-container .section-content h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #388e3c;
+}
+
+.smart-irrigation-container .section-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}

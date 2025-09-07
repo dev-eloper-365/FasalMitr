@@ -1,0 +1,90 @@
+/* General styles for the header */
+.header {
+  display: flex;
+  justify-content: space-between; /* Space between logo and menu toggle */
+  align-items: center; /* Center vertically */
+  background: linear-gradient(135deg, #107813, #afcd2afd); /* Green gradient for agriculture theme */
+  padding: 8px 20px; /* Padding for a more balanced look */
+  
+  position: fixed; /* Fixed position */
+  width: 100%; /* Full width */
+  top: 0; /* Align to the top */
+  z-index: 1000; /* Ensure the header is above other content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background 0.3s ease; /* Smooth background transition */
+  position:fixed;
+  margin: 0%;
+  
+}
+
+.header-container .logo {
+  height: 50px; /* Adjust the height as needed */
+  width: 100px; /* Adjust the width as needed */
+  
+}
+
+/* Navigation links styles */
+.nav-links {
+  padding-top: 2px;
+  display: flex; /* Flexbox for horizontal layout */
+  gap: 15px; /* Space between links */
+  transition: max-height 0.3s ease; /* Smooth transition for dropdown */
+  margin-left: 20px; /* Add margin from the leftmost side */
+  margin-right: 25px;
+  
+}
+
+/* Individual link styles */
+.nav-links a {
+  color: #ffffff; /* White text color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px; /* Reduced padding for a slimmer appearance */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 1em; /* Smaller font size for links */
+  transition: background-color 0.5s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light transparent background on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Styles when the menu is open */
+.nav-open {
+  max-height: 300px; /* Set max height for dropdown effect */
+  overflow: hidden; /* Hide overflow content */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: block; /* Show toggle button on smaller screens */
+  }
+
+  .nav-links {
+      flex-direction: column; /* Stack links vertically */
+      max-height: 0; /* Collapsed by default */
+      overflow: hidden; /* Hide overflow content */
+      background-color: rgba(76, 175, 80, 0.9); /* Slightly transparent background for mobile */
+      position: absolute; /* Position absolute to overlap */
+      top: 50px; /* Align below the header */
+      left: 0; /* Align to the left */
+      right: 0; /* Align to the right */
+      padding: 10px 0; /* Padding for dropdown */
+      transition: max-height 0.4s ease; /* Smooth transition for mobile dropdown */
+  }
+
+  /* Styles for the links in mobile view */
+  .nav-links a {
+      padding: 10px; /* Increased padding for touch targets */
+      text-align: left; /* Align text to the left */
+      font-size: 0.8em; /* Smaller font size for mobile */
+  }
+}
+
+/* Add a margin to the body to prevent content from being hidden behind the fixed header */
+body {
+  margin-top: 0px; /* Adjust this value based on your header height */
+}

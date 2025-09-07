@@ -1,0 +1,187 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f4f7fc, #e8f0f8);
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  
+  .farm-profitability-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    max-height: 80vh;  /* Set a maximum height for the container */
+    overflow-y: auto;  /* Add vertical scrollbar */
+  }
+  
+  .farm-profitability-container::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .farm-profitability-container::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+    border-radius: 5px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h1.title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .form-section h2,
+  .chart-section h2,
+  .weather-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .input-field {
+    padding: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-field:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    transform: scale(1.02);
+  }
+  
+  .calculate-btn {
+    margin-top: 1rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+  }
+  
+  .calculate-btn:hover {
+    background: linear-gradient(135deg, #1e8449, #27ae60);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(39, 174, 96, 0.3);
+  }
+  
+  .profit-summary {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .profit-summary p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .chart-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .chart-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .chart-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chart-section::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+  }
+  
+  .weather-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .weather-suggestion {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #dff9fb;
+    color: #1e8449;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+  }
+  
+  .weather-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .weather-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .weather-section::-webkit-scrollbar-thumb {
+    background: #2ecc71;
+    border-radius: 4px;
+  }
+  
