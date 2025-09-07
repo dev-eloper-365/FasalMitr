@@ -16,9 +16,9 @@ const API_CONFIG = {
   
   // API Endpoints
   ENDPOINTS: {
-    // Authentication endpoints
-    LOGIN: '/api/login/',
-    REGISTER: '/api/register/',
+    // Authentication endpoints (DISABLED)
+    // LOGIN: '/api/login/',
+    // REGISTER: '/api/register/',
     
     // ML Model endpoints
     PEST_PREDICTION: '/predict/pest',
