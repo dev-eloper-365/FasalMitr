@@ -1,0 +1,30 @@
+# Django Authentication API
+# This file configures the Django service for Render deployment
+
+# Python version
+python-version: 3.11.0
+
+# Build command
+build-command: |
+  pip install --upgrade pip
+  pip install django djangorestframework django-cors-headers
+
+# Start command
+start-command: |
+  cd backend/auth_project
+  python manage.py migrate
+  python manage.py runserver 0.0.0.0:$PORT
+
+# Environment variables
+env-vars:
+  - PYTHON_VERSION=3.11.0
+  - PORT=10000
+  - DEBUG=False
+  - ALLOWED_HOSTS=*
+  - SECRET_KEY=your-secret-key-here
+
+# Health check
+health-check-path: /api/auth/
+
+# Auto-deploy from main branch
+auto-deploy: true

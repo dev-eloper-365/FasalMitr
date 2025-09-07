@@ -1,0 +1,47 @@
+services:
+  # FastAPI Plant Disease Detection Service
+  - type: web
+    name: fasalmitra-plant-disease-api
+    env: python
+    plan: starter
+    buildCommand: pip install -r api/requirements.txt
+    startCommand: cd api && python main_main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+    healthCheckPath: /ping
+
+  # Flask Water Level Prediction Service  
+  - type: web
+    name: fasalmitra-water-level-api
+    env: python
+    plan: starter
+    buildCommand: pip install flask flask-cors joblib scikit-learn numpy pandas
+    startCommand: cd api/water_level && python api_flask.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+      - key: FLASK_ENV
+        value: production
+    healthCheckPath: /
+
+  # Django Authentication Service
+  - type: web
+    name: fasalmitra-auth-api
+    env: python
+    plan: starter
+    buildCommand: pip install django djangorestframework django-cors-headers
+    startCommand: cd backend/auth_project && python manage.py migrate && python manage.py runserver 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: "*"

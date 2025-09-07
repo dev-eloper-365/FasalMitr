@@ -1,0 +1,23 @@
+# Environment Variables for Render Deployment
+# Copy these to your Render service environment variables
+
+# Plant Disease Detection API (FastAPI)
+PYTHON_VERSION=3.11.0
+PORT=10000
+HOST=0.0.0.0
+
+# Water Level Prediction API (Flask)
+PYTHON_VERSION=3.11.0
+PORT=10000
+FLASK_ENV=production
+HOST=0.0.0.0
+
+# Authentication API (Django)
+PYTHON_VERSION=3.11.0
+PORT=10000
+DEBUG=False
+ALLOWED_HOSTS=*
+SECRET_KEY=your-secret-key-here-change-this-in-production
+
+# Optional: Database Configuration (if using PostgreSQL)
+# DATABASE_URL=postgresql://username:password@host:port/database

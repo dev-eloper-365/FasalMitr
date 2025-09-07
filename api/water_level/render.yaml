@@ -1,0 +1,28 @@
+# Flask Water Level Prediction API
+# This file configures the Flask service for Render deployment
+
+# Python version
+python-version: 3.11.0
+
+# Build command
+build-command: |
+  pip install --upgrade pip
+  pip install flask flask-cors joblib scikit-learn numpy pandas
+
+# Start command
+start-command: |
+  cd api/water_level
+  python api_flask.py
+
+# Environment variables
+env-vars:
+  - PYTHON_VERSION=3.11.0
+  - PORT=10000
+  - FLASK_ENV=production
+  - HOST=0.0.0.0
+
+# Health check
+health-check-path: /
+
+# Auto-deploy from main branch
+auto-deploy: true

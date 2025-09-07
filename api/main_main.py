@@ -15,10 +15,10 @@ MiddlewareType: Type[CORSMiddleware] = CORSMiddleware
 
 origins = [
     "http://localhost",
-    "http://http://127.0.0.1:5500",
-    "http://localhost:3000/plant-disease-detection/potato",
+    "http://127.0.0.1:5500",
     "http://localhost:3000",
-
+    "https://*.onrender.com",  # Allow Render domains
+    "https://fasalmitra-frontend.onrender.com",  # Your frontend domain
 ]
 app.add_middleware(
     MiddlewareType,
@@ -87,4 +87,7 @@ async def predict_pest(file: UploadFile = File(...)):
     return {"class": predicted_class, "confidence": float(confidence)}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='localhost', port=8002)
+    import os
+    port = int(os.environ.get("PORT", 8002))
+    host = os.environ.get("HOST", "0.0.0.0")
+    uvicorn.run(app, host=host, port=port)

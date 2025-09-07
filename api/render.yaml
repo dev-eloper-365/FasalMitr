@@ -1,0 +1,27 @@
+# FastAPI Plant Disease Detection API
+# This file configures the FastAPI service for Render deployment
+
+# Python version
+python-version: 3.11.0
+
+# Build command
+build-command: |
+  pip install --upgrade pip
+  pip install -r api/requirements.txt
+
+# Start command  
+start-command: |
+  cd api
+  python main_main.py
+
+# Environment variables
+env-vars:
+  - PYTHON_VERSION=3.11.0
+  - PORT=10000
+  - HOST=0.0.0.0
+
+# Health check
+health-check-path: /ping
+
+# Auto-deploy from main branch
+auto-deploy: true
