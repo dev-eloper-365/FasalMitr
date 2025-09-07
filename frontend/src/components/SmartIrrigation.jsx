@@ -7,7 +7,7 @@ import '../styles/SmartIrrigation.css'; // Ensure to add styles for the new layo
 
 import waterLevelImg from '../assets/waterlevel.jpg'; // Add your images to the assets folder
 import pestAttackImg from '../assets/pestattack.jpg';
-import farmProfitImg from '../assets/farmProfit.jpg';
+import farmProfitImg from '../assets/farmprofit.jpg';
 
 const SmartIrrigation = () => {
   const navigate = useNavigate();
