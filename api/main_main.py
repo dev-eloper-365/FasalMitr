@@ -6,24 +6,15 @@ from PIL import Image
 import tensorflow as tf
 from starlette.middleware.cors import CORSMiddleware
 from fastapi import HTTPException
-from typing import Type
-
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
-MiddlewareType: Type[CORSMiddleware] = CORSMiddleware
 
-origins = [
-    "http://localhost",
-    "http://127.0.0.1:5500",
-    "http://localhost:3000",
-    "https://*.onrender.com",  # Allow Render domains
-    "https://fasalmitra-frontend.onrender.com",  # Your frontend domain
-]
+# CORS configuration - Allow all origins for development and production
 app.add_middleware(
-    MiddlewareType,
-    allow_origins=origins,  # Allowed origins
-    allow_credentials=True,  # Allow credentials (cookies, etc.)
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=False,  # Set to False when using allow_origins=["*"]
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
 )
