@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-AUTH_USER_MODEL = 'authentication.CustomUser'
+# AUTH_USER_MODEL = 'authentication.CustomUser'  # Removed - no authentication
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-l*mqj6^1xssn2ca1-b$-gymdm6zc!y4t8srra*y-=^hcr5#zzj'
@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'authentication',
-    'rest_framework.authtoken'
+    # 'authentication',  # Removed - no authentication
+    # 'rest_framework.authtoken'  # Removed - no authentication
 ]
 
 MIDDLEWARE = [
@@ -63,13 +63,12 @@ ROOT_URLCONF = 'auth_project.urls'
 # Allow all origins for development (change this in production)
 CORS_ALLOW_ALL_ORIGINS = True
 
-AUTH_USER_MODEL = 'authentication.CustomUser'
+# AUTH_USER_MODEL = 'authentication.CustomUser'  # Removed - no authentication
 
-# Rest Framework settings
+# Rest Framework settings - No authentication needed
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
 }
 
 TEMPLATES = [
