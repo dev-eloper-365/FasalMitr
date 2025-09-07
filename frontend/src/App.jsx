@@ -17,7 +17,7 @@ import Receiver from "./components/Receiver";
 import Header from "./components/Header";
 import Potato from "./components/Potato";
 import BellPepper from "./components/BellPepper";
-import Tomato from "./components/Tomato";
+import Tomato from "./components/tomato";
 import FarmProfitability from "./components/FarmProfitability";
 // import PlantDiseaseHeatMap from "./components/PlantDiseaseHeatMap";
 import "./styles/App.css";
