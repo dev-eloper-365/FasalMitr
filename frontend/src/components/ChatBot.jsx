@@ -14,7 +14,7 @@ function ChatBot() {
   const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 
   const API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-  const API_KEY = import.meta.env.VITE_GROQ_API_KEY || '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';
+  const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
   if (recognition) {
     recognition.lang = language;
@@ -51,6 +51,12 @@ function ChatBot() {
   };
 
   const fetchAIResponse = async (userMessage) => {
+    // Check if API key is available
+    if (!API_KEY || API_KEY === 'your_groq_api_key_here') {
+      appendMessage('ChatBot is currently unavailable. Please configure the Groq API key in environment variables.', 'ai');
+      return;
+    }
+
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -72,14 +78,23 @@ function ChatBot() {
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to fetch AI response');
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Invalid API key. Please check your Groq API key configuration.');
+        }
+        throw new Error('Failed to fetch AI response');
+      }
 
       const data = await response.json();
-      const aiMessage = data.choices?.[0]?.message?.content || 'I couldn’t process your question. Could you try rephrasing it?';
+      const aiMessage = data.choices?.[0]?.message?.content || 'I couldn\'t process your question. Could you try rephrasing it?';
       appendMessage(aiMessage, 'ai');
     } catch (error) {
       console.error('Error fetching AI response:', error);
-      appendMessage('Sorry, there was an error processing your request.', 'ai');
+      if (error.message.includes('Invalid API key')) {
+        appendMessage('ChatBot API key is invalid. Please contact the administrator to configure a valid Groq API key.', 'ai');
+      } else {
+        appendMessage('Sorry, there was an error processing your request. Please try again later.', 'ai');
+      }
     }
   };
 
