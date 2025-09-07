@@ -74,7 +74,7 @@ export default function Potato() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8002/predict/tomato', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_ML_API_BASE_URL || 'https://fasalmitr.onrender.com'}/predict/tomato`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 

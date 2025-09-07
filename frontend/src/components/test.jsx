@@ -25,7 +25,7 @@ export default function AIPestDetection() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8002/predict/pest", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_ML_API_BASE_URL || 'https://fasalmitr.onrender.com'}/predict/pest`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

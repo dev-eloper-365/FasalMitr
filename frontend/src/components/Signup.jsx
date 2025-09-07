@@ -24,7 +24,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/api/register/", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://fasalmitr.onrender.com'}/api/register/`, {
         username,
         email,
         password,

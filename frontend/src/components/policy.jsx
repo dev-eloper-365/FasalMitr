@@ -9,7 +9,7 @@ export default function Policy() {
 
   const fetchPolicyData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/policy');
+      const response = await fetch(`${import.meta.env.VITE_POLICY_API_BASE_URL || 'https://fasalmitr.onrender.com'}/api/policy`);
       const data = await response.json();
       setPolicyHTML(data.webpage_html || "No data available");
     } catch (error) {

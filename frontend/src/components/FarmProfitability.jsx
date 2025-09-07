@@ -84,7 +84,7 @@ const FarmProfitability = () => {
   const fetchWeatherSuggestion = async (city) => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY || API_KEY}&units=metric`
       );
       const temp = response.data.main.temp;
 

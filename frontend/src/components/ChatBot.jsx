@@ -14,7 +14,7 @@ function ChatBot() {
   const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 
   const API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-  const API_KEY = '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';
+  const API_KEY = import.meta.env.VITE_GROQ_API_KEY || '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';
 
   if (recognition) {
     recognition.lang = language;

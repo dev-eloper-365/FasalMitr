@@ -41,12 +41,12 @@ const ClimatePrediction = () => {
     setError(null);
     try {
       const currentResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY || API_KEY}&units=metric`
       );
       setCurrentWeather(currentResponse.data);
 
       const forecastResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY || API_KEY}&units=metric`
       );
       const dailyData = forecastResponse.data.list.filter((item) =>
         item.dt_txt.includes('12:00:00')
@@ -65,12 +65,12 @@ const ClimatePrediction = () => {
     setError(null);
     try {
       const currentResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY || API_KEY}&units=metric`
       );
       setCurrentWeather(currentResponse.data);
 
       const forecastResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY || API_KEY}&units=metric`
       );
       const dailyData = forecastResponse.data.list.filter((item) =>
         item.dt_txt.includes('12:00:00')

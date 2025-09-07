@@ -13,7 +13,7 @@ const Auth = ({ onLogin }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/login/", { username, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://fasalmitr.onrender.com'}/api/login/`, { username, password });
       localStorage.setItem("authToken", response.data.token); // Store the actual token
       onLogin();
       navigate("/");

@@ -34,7 +34,7 @@ export default function BellPepper() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8002/predict/bell_pepper", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_ML_API_BASE_URL || 'https://fasalmitr.onrender.com'}/predict/bell_pepper`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

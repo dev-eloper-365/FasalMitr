@@ -37,7 +37,7 @@ const WaterLevelAndWasteManagementPlanner = () => {
     setLoading(true);
     setError(null);
 
-    fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY || API_KEY}&q=${city}`)
       .then((response) => (response.ok ? response.json() : Promise.reject('Failed to fetch')))
       .then((data) => {
         setLoading(false);
