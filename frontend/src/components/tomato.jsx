@@ -108,6 +108,7 @@ export default function Potato() {
         type="file" 
         id="fileUpload" 
         accept="image/*" 
+        capture="environment"
         onChange={(event) => {
           handleImageChange(event);
           handleUpload(event);
