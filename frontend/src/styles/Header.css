@@ -54,7 +54,7 @@
 /* Styles when the menu is open */
 .nav-open {
   max-height: 300px; /* Set max height for dropdown effect */
-  overflow: hidden; /* Hide overflow content */
+
 }
 
 /* Media queries for responsiveness */
@@ -66,7 +66,6 @@
   .nav-links {
       flex-direction: column; /* Stack links vertically */
       max-height: 0; /* Collapsed by default */
-      overflow: hidden; /* Hide overflow content */
       background-color: rgba(76, 175, 80, 0.9); /* Slightly transparent background for mobile */
       position: absolute; /* Position absolute to overlap */
       top: 50px; /* Align below the header */
